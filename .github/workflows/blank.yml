@@ -36,7 +36,9 @@ jobs:
           cd deploy-repo
           cat README.md
           ls
-          sed 's/2.0.0/3.0.0/g' README.md
+          sed 's/2.0.0/3.0.0/g' README.md >> README1.md
+          rm -rf README.md
+          mv README1.md README.md
           ls
           cat README.md
 
