@@ -46,18 +46,18 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
 
-      - run: |
-          ls
-          pwd
-          cd main
-          ls
-          cat README.md
-          cd /home/runner/work/build-repo/
-          ls
-          pwd
-          cd /home/runner/work/build-repo/build-repo/deploy-repo
-          ls
-          cat README.md
+#       - run: |
+#           ls
+#           pwd
+#           cd main
+#           ls
+#           cat README.md
+#           cd /home/runner/work/build-repo/
+#           ls
+#           pwd
+#           cd /home/runner/work/build-repo/build-repo/deploy-repo
+#           ls
+#           cat README.md
           
 
 
