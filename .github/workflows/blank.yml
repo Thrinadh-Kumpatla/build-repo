@@ -45,7 +45,7 @@ jobs:
           cd /home/runner/work/build-repo/
           ls
           pwd
-          cd /home/runner/work/build-repo/build-repo
+          cd /home/runner/work/build-repo/build-repo/build-repo
           ls
           
 
