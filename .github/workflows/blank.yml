@@ -47,6 +47,7 @@ jobs:
           pwd
           cd /home/runner/work/build-repo/build-repo/build-repo
           ls
+          cat README.md
           
 
 
