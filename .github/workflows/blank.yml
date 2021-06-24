@@ -36,18 +36,27 @@ jobs:
           repository: Thrinadh-Kumpatla/deploy-repo
           token: ${{ secrets.GH_PAT }}
           path: deploy-repo
+          
       - run: |
-          ls
-          pwd
-          cd main
-          ls
-          cat README.md
-          cd /home/runner/work/build-repo/
-          ls
-          pwd
-          cd /home/runner/work/build-repo/build-repo/deploy-repo
-          ls
-          cat README.md
+          touch 1.txt
+        
+
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+#       - run: |
+#           ls
+#           pwd
+#           cd main
+#           ls
+#           cat README.md
+#           cd /home/runner/work/build-repo/
+#           ls
+#           pwd
+#           cd /home/runner/work/build-repo/build-repo/deploy-repo
+#           ls
+#           cat README.md
           
 
 
