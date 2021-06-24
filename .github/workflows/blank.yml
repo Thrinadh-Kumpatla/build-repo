@@ -35,9 +35,8 @@ jobs:
         with:
           repository: Thrinadh-Kumpatla/deploy-repo
           token: ${{ secrets.GH_PAT }}
-          run: |
-            cd /
-            ls
+      - run: |
+         ls
 #           path: build-repo
  
 
