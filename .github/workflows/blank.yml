@@ -35,7 +35,7 @@ jobs:
         with:
           repository: Thrinadh-Kumpatla/deploy-repo
           token: ${{ secrets.GH_PAT }}
-          path: deploy-repo
+
           
       - run: |
           touch 1.txt
