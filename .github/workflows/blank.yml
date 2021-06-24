@@ -36,7 +36,7 @@ jobs:
           cd deploy-repo
           cat README.md
           sed 's/2.0.0/3.0.0/' README.md
-          caT README.md
+          cat README.md
 
       - uses: peter-evans/create-pull-request@v3
         with:
