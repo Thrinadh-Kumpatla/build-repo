@@ -24,6 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: main
+        
       - name: Checkout tools repo
         uses: actions/checkout@v2
         with:
@@ -32,9 +38,5 @@ jobs:
           run: |
             ls
 #           path: build-repo
-      - uses: actions/checkout@v2
-      -  run: |
-           cd /home/runner/work/
-           ls
  
 
