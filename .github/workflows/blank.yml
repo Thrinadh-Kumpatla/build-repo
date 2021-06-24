@@ -27,21 +27,17 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          path: main
+#         with:
+#           path: main
         
       - name: Checkout tools repo
         uses: actions/checkout@v2
         with:
           repository: Thrinadh-Kumpatla/deploy-repo
           token: ${{ secrets.GH_PAT }}
-          path: deploy-repo
-
           
       - run: |
           touch 1.txt
-
-        
 
       - uses: peter-evans/create-pull-request@v3
         with:
@@ -56,11 +52,8 @@ jobs:
           cd /home/runner/work/build-repo/
           ls
           pwd
-          cd /home/runner/work/build-repo/build-repo/deploy-repo
+          cd /home/runner/work/build-repo/build-repo/
           ls
-          cat README.md
-          
-
 
  
 
