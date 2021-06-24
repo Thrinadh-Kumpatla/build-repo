@@ -39,7 +39,12 @@ jobs:
       - run: |
           ls
           pwd
+          cd main
+          ls
           cd /home/runner/work/build-repo/
+          ls
+          pwd
+          cd /home/runner/work/build-repo/build-repo
           ls
           
 
