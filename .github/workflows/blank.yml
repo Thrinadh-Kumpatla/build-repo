@@ -39,6 +39,7 @@ jobs:
       - uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GH_PAT }}
+          path : deploy-repo
 
 #       - run: |
 #           ls
