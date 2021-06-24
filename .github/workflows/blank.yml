@@ -29,7 +29,7 @@ jobs:
         with:
           repository: Thrinadh-Kumpatla/deploy-repo
           token: ${{ secrets.GH_PAT }}
-          path: /
+          path: build-repo
       -  run: |
            ls
            cat README.md
