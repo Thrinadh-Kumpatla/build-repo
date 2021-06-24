@@ -39,7 +39,7 @@ jobs:
       - run: |
           touch 1.txt
           cd /home/runner/work/build-repo/build-repo
-          sed 's/2.0.0/3.0.0/' README.txt
+          sed 's/2.0.0/3.0.0/' README.md
 
       - uses: peter-evans/create-pull-request@v3
         with:
