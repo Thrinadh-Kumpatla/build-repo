@@ -25,10 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          path: main
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#         with:
+#           path: main
         
       - name: Checkout tools repo
         uses: actions/checkout@v2
@@ -39,24 +39,25 @@ jobs:
           
       - run: |
           touch 1.txt
+          apt-get install ca-certificates
         
 
       - uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.PAT }}
 
-#       - run: |
-#           ls
-#           pwd
-#           cd main
-#           ls
-#           cat README.md
-#           cd /home/runner/work/build-repo/
-#           ls
-#           pwd
-#           cd /home/runner/work/build-repo/build-repo/deploy-repo
-#           ls
-#           cat README.md
+      - run: |
+          ls
+          pwd
+          cd main
+          ls
+          cat README.md
+          cd /home/runner/work/build-repo/
+          ls
+          pwd
+          cd /home/runner/work/build-repo/build-repo/deploy-repo
+          ls
+          cat README.md
           
 
 
