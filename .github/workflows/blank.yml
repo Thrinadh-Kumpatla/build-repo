@@ -47,6 +47,7 @@ jobs:
           token: ${{ secrets.GH_PAT }}
           path : deploy-repo
           commit-message: version-change
+          title: 'version-change'
 
 #       - run: |
 #           ls
