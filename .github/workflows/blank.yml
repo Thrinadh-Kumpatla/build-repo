@@ -39,7 +39,7 @@ jobs:
           
       - run: |
           touch 1.txt
-          apt-get install ca-certificates
+
         
 
       - uses: peter-evans/create-pull-request@v3
