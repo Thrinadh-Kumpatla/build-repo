@@ -39,6 +39,8 @@ jobs:
       - run: |
           ls
           pwd
+          cd /home/runner/work/build-repo/
+          ls
           
 
 
