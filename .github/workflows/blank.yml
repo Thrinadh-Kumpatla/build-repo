@@ -35,7 +35,7 @@ jobs:
         with:
           repository: Thrinadh-Kumpatla/deploy-repo
           token: ${{ secrets.GH_PAT }}
-          path: build-repo
+          path: deploy-repo
       - run: |
           ls
           pwd
@@ -45,7 +45,7 @@ jobs:
           cd /home/runner/work/build-repo/
           ls
           pwd
-          cd /home/runner/work/build-repo/build-repo/build-repo
+          cd /home/runner/work/build-repo/build-repo/deploy-repo
           ls
           cat README.md
           
