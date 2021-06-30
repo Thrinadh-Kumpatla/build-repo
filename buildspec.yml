@@ -1,15 +1,15 @@
 version: 0.2
 phases:
-#   install:
-#     runtime-versions:
-#       dotnet: 3.1
-  build:
+  install:
     commands:
       - wget https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -O /usr/bin/yq
       - chmod +x /usr/bin/yq
+  build:
+    commands:
+      - lsb_release -a
+      - yq --version
+      - ls
       - yq eval '.spec.containers[0].env[0].value' test.yaml
       - VERSION=`yq e '.spec.containers[0].env[0].value' test.yaml`
       - echo $VERSION
-      - yq --version
-      - ls
       - cat test.yaml
