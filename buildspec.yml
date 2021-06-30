@@ -9,7 +9,8 @@ phases:
       - add-apt-repository ppa:rmescandon/yq
       - apt update
       - apt install yq -y
-      - export VERSION=$(yq e '.spec.containers[0].env[0].value' test.yaml)
+      - yq --version
+      - export VERSION=$(yq r test.yaml 'spec.containers[0].env[0].value')
       - echo $VERSION
       - ls
 
