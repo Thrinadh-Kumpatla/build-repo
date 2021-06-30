@@ -10,6 +10,6 @@ phases:
       - yq e '.spec.containers[0].env[0].value' test.yaml
       - VERSION=`yq e '.spec.containers[0].env[0].value' test.yaml`
       - echo $VERSION
+      - yq --version
       - ls
-      - cat 1.txt
       - cat test.yaml
