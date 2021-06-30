@@ -1,10 +1,14 @@
 version: 0.2
 phases:
-  install:
-    runtime-versions:
-      dotnet: 3.1
+#   install:
+#     runtime-versions:
+#       dotnet: 3.1
   build:
     commands:
-      - ls
+      - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
+      - sudo add-apt-repository ppa:rmescandon/yq
+      - sudo apt update
+      - sudo apt install yq -y
+      - export VERSION=$(yq r pod.yaml "spec.containers[0].env[0].value")
 
 
