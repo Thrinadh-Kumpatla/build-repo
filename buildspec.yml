@@ -4,12 +4,18 @@ phases:
     commands:
       - wget https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -O /usr/bin/yq
       - chmod +x /usr/bin/yq
+      - apt update
+      - apt install -y git
   build:
     commands:
       - lsb_release -a
       - yq --version
       - ls
       - yq eval '.spec.containers[0].env[0].value' test.yaml
+      - git --version
       - VERSION=`yq e '.spec.containers[0].env[0].value' test.yaml`
       - echo $VERSION
       - cat test.yaml
+  post_build:
+    commands:
+      - 
