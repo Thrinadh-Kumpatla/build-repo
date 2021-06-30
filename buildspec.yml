@@ -10,5 +10,6 @@ phases:
       - apt update
       - apt install yq -y
       - export VERSION=$(yq r test.yaml "spec.containers[0].env[0].value")
+      - echo $VERSION
 
 
