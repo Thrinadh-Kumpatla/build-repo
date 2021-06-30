@@ -22,7 +22,7 @@ phases:
       - ls
       - cd deploy-repo
       - git checkout -b "version-change-branch"
-      - yq eval '.spec.containers[0].env[0].version = $VERSION' deploy.yaml
+      - yq eval '.spec.containers[0].env[0].version = $VERSION' deploy.yaml >> deploy.yaml
       - cat deploy.yaml
       - git add .
       - git commit -m "changing version"
