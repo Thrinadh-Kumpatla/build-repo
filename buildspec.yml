@@ -16,5 +16,6 @@ phases:
       - echo $VERSION
       - ls
       - cat 1.txt
+      - cat test.yaml
 
 
