@@ -5,17 +5,11 @@ phases:
 #       dotnet: 3.1
   build:
     commands:
-      - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
-      - add-apt-repository ppa:rmescandon/yq
-      - apt update
-      - apt install yq -y
-      - yq --version
-      - yq r test.yaml 'spec.containers[0].env[0].value'
-      - yq r test.yaml 'spec.containers[0].env[0].value' >> 1.txt
-      - VERSION=`yq r test.yaml 'spec.containers[0].env[0].value'`
+      - wget https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -O /usr/bin/yq
+      - chmod +x /usr/bin/yq
+      - yq e '.spec.containers[0].env[0].value' test.yaml
+      - VERSION=`yq e '.spec.containers[0].env[0].value' test.yaml`
       - echo $VERSION
       - ls
       - cat 1.txt
       - cat test.yaml
-
-
