@@ -5,9 +5,10 @@ phases:
 #       dotnet: 3.1
   build:
     commands:
+      - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
+      - add-apt-repository ppa:rmescandon/yq
       - apt update
-      - apt install snapd
-      - snap install yq
+      - apt install yq -y
       - export VERSION=$(yq e '.spec.containers[0].env[0].value' test.yaml)
       - echo $VERSION
 
