@@ -16,6 +16,13 @@ phases:
       - VERSION=`yq e '.spec.containers[0].env[0].value' test.yaml`
       - echo $VERSION
       - cat test.yaml
+      - git remote add origin 
   post_build:
     commands:
-      - 
+      - git clone https://github.com/Thrinadh-Kumpatla/deploy-repo.git
+      - cd deploy-repo
+      - yq eval '.spec.containers[0].env[0].value = "3.1.2"' deploy.yaml
+      - git add .
+      - git commit -m "changing version"
+      - git checkout -b "version-change-branch"
+      - git push -u origin version-change-branch
