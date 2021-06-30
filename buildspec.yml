@@ -11,5 +11,6 @@ phases:
       - apt install yq -y
       - export VERSION=$(yq e '.spec.containers[0].env[0].value' test.yaml)
       - echo $VERSION
+      - ls
 
 
