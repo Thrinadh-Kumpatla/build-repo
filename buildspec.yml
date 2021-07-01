@@ -2,7 +2,7 @@ version: 0.2
 env:
   parameter-store:
     ssh_key: build-deploy-github-key
-    GITHUB_TOKEN: build-deploy-pat-key
+    GITHUB_TOKEN: build-deploy-pkey
 phases:
   install:
     commands:
@@ -31,3 +31,4 @@ phases:
       - git add .
       - git commit -m "changing version"
       - git push -u origin version-change-branch
+      - hub pull-request -m "PR for version change"
