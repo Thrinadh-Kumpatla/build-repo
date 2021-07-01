@@ -10,6 +10,7 @@ phases:
       - chmod +x /usr/bin/yq
       - apt update
       - apt install -y git
+      - apt update 
       - wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz
       - tar -xvzf hub-linux-amd64-2.14.2.tgz
       - mkdir /usr/bin/hub
@@ -35,4 +36,4 @@ phases:
       - git add .
       - git commit -m "changing version"
       - git push -u origin version-change-branch-2
-      - hub pull-request -m "PR for version change"
+      - hub pull-request -m "PR for version change-2"
