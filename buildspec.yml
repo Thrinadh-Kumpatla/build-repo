@@ -31,10 +31,10 @@ phases:
       - git remote -v
       - git config --global user.email "kthrinadh8898@gmail.com"
       - git config --global user.name "Thrinadh-Kumpatla"
-      - git checkout -b "version-change-branch-2"
-      - yq eval '.spec.containers[0].env[0].version = $VERSION' deploy.yaml >> deploy.yaml
+      - git checkout "version-change-branch-23"
+      - yq eval ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml >> deploy.yaml
       - cat deploy.yaml
       - git add .
       - git commit -m "changing version"
-      - git push -u origin version-change-branch-2
-      - hub pull-request -m "PR for version change-2"
+      - git push -u origin version-change-branch-23
+      - hub pull-request -m "PR for version change-23"
