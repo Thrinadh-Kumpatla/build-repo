@@ -1,8 +1,8 @@
 version: 0.2
 env:
   parameter-store:
-    ssh_key: build-deploy-github-key
-    GITHUB_TOKEN: build-deploy-pkey
+    ssh_key: "build-deploy-github-key"
+    GITHUB_TOKEN: "build-deploy-pkey"
 phases:
   install:
     commands:
