@@ -10,8 +10,11 @@ phases:
       - chmod +x /usr/bin/yq
       - apt update
       - apt install -y git
-      - apt update
-      - apt install hub
+      - wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz
+      - tar -xvzf hub-linux-amd64-2.14.2.tgz
+      - mkdir /usr/bin/hub
+      - mv hub-linux-amd64-2.14.2 /usr/bin/hub
+      - chmod +x /usr/bin/hub
   build:
     commands:
       - mkdir -p ~/.ssh
