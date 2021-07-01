@@ -27,7 +27,6 @@ phases:
       - git remote add origin https://github.com/Thrinadh-Kumpatla/deploy-repo.git
       - git remote get-url origin
       - git remote -v
-      - cd deploy-repo
       - git checkout -b "version-change-branch"
       - yq eval '.spec.containers[0].env[0].version = $VERSION' deploy.yaml >> deploy.yaml
       - cat deploy.yaml
