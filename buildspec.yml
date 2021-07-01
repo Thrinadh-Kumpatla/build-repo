@@ -18,10 +18,11 @@ phases:
       - cat test.yaml
       - git config --global user.email "kthrinadh8898@gmail.com"
       - git config --global user.name "Thrinadh-Kumpatla"
+      - git remote get-url origin
       - git clone https://github.com/Thrinadh-Kumpatla/deploy-repo.git
       - git remote remove origin
       - git remote set-url origin https://github.com/Thrinadh-Kumpatla/deploy-repo.git
-      - ls
+      - git remote get-url origin
       - cd deploy-repo
       - git checkout -b "version-change-branch"
       - yq eval '.spec.containers[0].env[0].version = $VERSION' deploy.yaml >> deploy.yaml
