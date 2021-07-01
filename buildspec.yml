@@ -1,9 +1,7 @@
 version: 0.2
 env:
-  variables:
-    git_url: "git@github.com:Thrinadh-Kumpatla/deploy-repo.git"
   parameter-store:
-    ssh_key: /codebuild/build-deploy/ssh-key
+    ssh_key: build-deploy-github-key
 phases:
   install:
     commands:
@@ -14,6 +12,7 @@ phases:
   build:
     commands:
       - mkdir -p ~/.ssh
+      - echo "$ssh_key"
       - echo "$ssh_key" > ~/.ssh/id_rsa
       - chmod 600 ~/.ssh/id_rsa
       - eval “$(ssh-agent -s)"
