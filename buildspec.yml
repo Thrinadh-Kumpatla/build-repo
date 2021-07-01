@@ -3,7 +3,7 @@ env:
   variables:
     git_url: "git@github.com:Thrinadh-Kumpatla/deploy-repo.git"
   parameter-store:
-    ssh_key: id_rsa
+    ssh_key: /codebuild/build-deploy/ssh-key
 phases:
   install:
     commands:
