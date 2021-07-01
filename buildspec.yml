@@ -10,6 +10,7 @@ phases:
       - chmod +x /usr/bin/yq
       - apt update
       - apt install -y git
+      - apt update
       - apt install hub
   build:
     commands:
