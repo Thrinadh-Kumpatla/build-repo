@@ -2,6 +2,7 @@ version: 0.2
 env:
   parameter-store:
     ssh_key: build-deploy-github-key
+    GITHUB_TOKEN: build-deploy-pat-key
 phases:
   install:
     commands:
@@ -9,6 +10,7 @@ phases:
       - chmod +x /usr/bin/yq
       - apt update
       - apt install -y git
+      - apt install hub
   build:
     commands:
       - mkdir -p ~/.ssh
