@@ -36,4 +36,4 @@ phases:
       - git add .
       - git commit -m "changing version"
       - git push -u origin version-change-\"$VERSION\"
-      - hub pull-request -m "PR for rudder-transformer version change-\"$VERSION\" "
+      - hub pull-request -m "PR for rudder-transformer version change-\"$VERSION\" " -a "Thrinadh-Kumpatla"
