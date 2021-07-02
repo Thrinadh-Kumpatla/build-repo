@@ -10,14 +10,8 @@ phases:
       - chmod +x /usr/bin/yq
       - apt update
       - apt install -y git 
-#       - wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz
-#       - tar -xvzf hub-linux-amd64-2.14.2.tgz
-#       - mkdir /usr/bin/hub
-#       - mv hub-linux-amd64-2.14.2 /usr/bin/hub
-#       - chmod +x /usr/bin/hub
-      - add-apt-repository ppa:cpick/hub
-      - apt-get update
-      - apt-get install hub
+      - apt update
+      - apt install -y hub
   build:
     commands:
       - export GITHUB_TOKEN="$GITHUB_TOKEN"
