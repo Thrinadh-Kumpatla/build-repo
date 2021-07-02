@@ -29,7 +29,7 @@ phases:
       - git config --global user.email "kthrinadh8898@gmail.com"
       - git config --global user.name "Thrinadh-Kumpatla"
       - git checkout -b version-change-\"$VERSION\"
-      - yq eval ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml | sponge deploy.yaml
+      - yq eval ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml > deploy.yaml
       - cat deploy.yaml
       - git add .
       - git commit -m "changing version"
