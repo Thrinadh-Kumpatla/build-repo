@@ -15,11 +15,11 @@ phases:
   build:
     commands:
       - export GITHUB_TOKEN="$GITHUB_TOKEN"
-      - mkdir -p ~/.ssh
-      - echo "$ssh_key"
-      - echo "$ssh_key" > ~/.ssh/id_rsa
-      - chmod 600 ~/.ssh/id_rsa
-      - eval "$(ssh-agent -s)"
+#       - mkdir -p ~/.ssh
+#       - echo "$ssh_key"
+#       - echo "$ssh_key" > ~/.ssh/id_rsa
+#       - chmod 600 ~/.ssh/id_rsa
+#       - eval "$(ssh-agent -s)"
       - VERSION=`yq e '.spec.containers[0].env[0].version' test.yaml`
       - yes | git clone https://$GITHUB_TOKEN@github.com/rudderlabs/rudder-devops.git
       - git remote -v
@@ -33,7 +33,7 @@ phases:
       - rm -rf values.enterprise.yaml
       - mv values.enterprise1.yaml values.enterprise.yaml
       - cat values.enterprise.yaml
-      - git add .
-      - git commit -m "changing version"
-      - git push -u origin version-change-\"$VERSION\"
-      - hub pull-request -m "PR for rudder-transformer version change-\"$VERSION\" " -a "Thrinadh-Kumpatla"
+#       - git add .
+#       - git commit -m "changing version"
+#       - git push -u origin version-change-\"$VERSION\"
+#       - hub pull-request -m "PR for rudder-transformer version change-\"$VERSION\" " -a "Thrinadh-Kumpatla"
