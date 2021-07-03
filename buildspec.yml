@@ -21,7 +21,7 @@ phases:
       - chmod 600 ~/.ssh/id_rsa
       - eval "$(ssh-agent -s)"
       - VERSION=`yq e '.spec.containers[0].env[0].version' test.yaml`
-      - yes | git clone git@github.com:rudderlabs/rudder-devops.git
+      - yes | git clone https://$GITHUB_TOKEN@github.com/rudderlabs/rudder-devops.git
       - git remote -v
       - hub --version
       - cd rudder-devops/helm-charts/shared-services/per-az/values.enterprise.yaml
