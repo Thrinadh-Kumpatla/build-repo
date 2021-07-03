@@ -24,15 +24,15 @@ phases:
       - yes | git clone https://$GITHUB_TOKEN@github.com/rudderlabs/rudder-devops.git
       - git remote -v
       - hub --version
-      - cd rudder-devops/helm-charts/shared-services/per-az/values.enterprise.yaml
+      - cd rudder-devops/helm-charts/shared-services/per-az
       - git remote -v
       - git config --global user.email "kthrinadh8898@gmail.com"
       - git config --global user.name "Thrinadh-Kumpatla"
       - git checkout -b version-change-\"$VERSION\"
-      - yq eval ".rudder-transformer.image[0].tag=\"$VERSION\"" deploy.yaml >> deploy1.yaml
-      - mv deploy1.yaml deploy.yaml
-      - rm -rf deploy1.yaml
-      - cat deploy.yaml
+      - yq eval ".rudder-transformer.image.tag=\"$VERSION\"" values.enterprise.yaml >> values.enterprise1.yaml
+      - rm -rf values.enterprise.yaml
+      - mv values.enterprise1.yaml values.enterprise.yaml
+      - cat values.enterprise.yaml
       - git add .
       - git commit -m "changing version"
       - git push -u origin version-change-\"$VERSION\"
