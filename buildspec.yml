@@ -14,7 +14,7 @@ phases:
       - apt install -y hub
   build:
     commands:
-      - export GITHUB_TOKEN="$GITHUB_TOKEN"
+#       - export GITHUB_TOKEN="$GITHUB_TOKEN"
 #       - mkdir -p ~/.ssh
 #       - echo "$ssh_key"
 #       - echo "$ssh_key" > ~/.ssh/id_rsa
