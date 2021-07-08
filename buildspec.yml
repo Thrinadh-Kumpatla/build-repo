@@ -15,11 +15,12 @@ phases:
       - apt install -y hub
   build:
     commands:
-      - export VERSION=3.34
+      - export VERSION=3.33
+      - export GITHUB_TOKEN="$GITHUB_TOKEN"
       - git clone https://$GITHUB_TOKEN@github.com/Thrinadh-Kumpatla/deploy-repo.git
       - cd deploy-repo
-      - git config --global user.email "kthrinadh8898@gmail.com"
-      - git config --global user.name "Thrinadh-Kumpatla"
+#       - git config --global user.email "kthrinadh8898@gmail.com"
+#       - git config --global user.name "Thrinadh-Kumpatla"
       - git checkout -b version-change-\"$VERSION\"
       - yq eval -i ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml
       - git add .
