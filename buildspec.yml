@@ -21,7 +21,7 @@ phases:
       - cd deploy-repo
       - git remote -v
       - git checkout -b version-change-\"$VERSION\"
-      - yq eval -i ".rudder-transformer.image.tag=\"$VERSION\"" test.yaml
+      - yq eval -i ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml
       - git add .
       - git commit -m "changing version"
       - git push -u origin version-change-\"$VERSION\"
