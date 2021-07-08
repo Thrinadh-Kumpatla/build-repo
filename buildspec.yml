@@ -16,10 +16,9 @@ phases:
       - apt install -y hub
   build:
     commands:
-      - VERSION=`yq e '.spec.containers[0].env[0].version' test.yaml`
-      - yes | git clone https://$GITHUB_TOKEN@github.com/Thrinadh-Kumpatla/deploy-repo.git
+      - export VERSION=3.3
+      - git clone https://$GITHUB_TOKEN@github.com/Thrinadh-Kumpatla/deploy-repo.git
       - cd deploy-repo
-      - git remote -v
       - git checkout -b version-change-\"$VERSION\"
       - yq eval -i ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml
       - git add .
