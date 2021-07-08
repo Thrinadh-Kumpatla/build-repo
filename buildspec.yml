@@ -15,7 +15,7 @@ phases:
       - apt install -y hub
   build:
     commands:
-      - export VERSION=3.3
+      - export VERSION=3.34
       - git clone https://$GITHUB_TOKEN@github.com/Thrinadh-Kumpatla/deploy-repo.git
       - cd deploy-repo
       - git config --global user.email "kthrinadh8898@gmail.com"
