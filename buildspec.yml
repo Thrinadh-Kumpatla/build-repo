@@ -13,17 +13,17 @@ phases:
       - chmod +x /usr/bin/yq
       - git --version
       - yum install -y hub
-#   build:
-#     commands:
-#       - export VERSION=3.37
-#       - git clone https://$GITHUB_TOKEN@github.com/Thrinadh-Kumpatla/deploy-repo.git
-#       - cd deploy-repo
-#       - git config --global user.email \"$MAIL\"
-#       - git config --global user.name \"$USER_NAME\"
-#       - git checkout -b version-change-\"$VERSION\"
-#       - yq eval -i ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml
-#       - git add .
-#       - git commit -m "changing version"
-#       - git push -u origin version-change-\"$VERSION\"
-#       - hub pull-request -m "PR for rudder-transformer version change-\"$VERSION\" " 
+  build:
+    commands:
+      - export VERSION=3.37
+      - git clone https://$GITHUB_TOKEN@github.com/Thrinadh-Kumpatla/deploy-repo.git
+      - cd deploy-repo
+      - git config --global user.email \"$MAIL\"
+      - git config --global user.name \"$USER_NAME\"
+      - git checkout -b version-change-\"$VERSION\"
+      - yq eval -i ".spec.containers[0].env[0].version=\"$VERSION\"" deploy.yaml
+      - git add .
+      - git commit -m "changing version"
+      - git push -u origin version-change-\"$VERSION\"
+      - hub pull-request -m "PR for rudder-transformer version change-\"$VERSION\" " 
 
