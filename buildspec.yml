@@ -12,6 +12,7 @@ phases:
       - wget https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -O /usr/bin/yq
       - chmod +x /usr/bin/yq
 #       - yum install -y hub
+      - apt-get update
       - apt install hub
   build:
     commands:
