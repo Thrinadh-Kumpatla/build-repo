@@ -11,13 +11,11 @@ phases:
     commands:
       - wget https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -O /usr/bin/yq
       - chmod +x /usr/bin/yq
+      - lsb_release -a 
       - apt update
       - apt install -y git 
-      - add-apt-repository ppa:cpick/hub
-      - apt-get update
-      - apt-get install hub
-#       - apt update
-#       - apt install -y hub
+      - apt update
+      - apt install -y hub
 #   build:
 #     commands:
 #       - export VERSION=3.37
