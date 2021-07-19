@@ -20,7 +20,7 @@ phases:
       - echo $PATH
       - echo $HOME
       - export PATH="$PATH:$HOME/usr/bin/hub"
-      - 
+      - hub --version
 #       - apt update
 #       - apt install -y hub
 #   build:
