@@ -15,13 +15,14 @@ phases:
       - pwd
       - apt update
       - apt install -y git 
-      - wget https://github.com/github/hub/archive/refs/tags/v2.14.2.tar.gz 
-      - mkdir /usr/bin/hub
-      - tar -C /usr/bin/hub -zxvf v2.14.2.tar.gz -O
-      - echo $PATH
-      - echo $HOME
-      - export PATH="$PATH:$HOME/usr/bin/hub"
-      - hub version
+      - node -v
+#       - wget https://github.com/github/hub/archive/refs/tags/v2.14.2.tar.gz 
+#       - mkdir /usr/bin/hub
+#       - tar -C /usr/bin/hub -zxvf v2.14.2.tar.gz -O
+#       - echo $PATH
+#       - echo $HOME
+#       - export PATH="$PATH:$HOME/usr/bin/hub"
+#       - hub version
 #       - apt update
 #       - apt install -y hub
 #   build:
