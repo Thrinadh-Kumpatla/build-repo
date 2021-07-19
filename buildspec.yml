@@ -11,19 +11,10 @@ phases:
     commands:
       - wget https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -O /usr/bin/yq
       - chmod +x /usr/bin/yq
-#       - apt update
-      - pacman -S git
-#       - apt update
-      - pacman -S hub
-#       - wget https://github.com/github/hub/archive/refs/tags/v2.14.2.tar.gz 
-#       - mkdir /usr/bin/hub
-#       - tar -C /usr/bin/hub -zxvf v2.14.2.tar.gz -O
-#       - echo $PATH
-#       - echo $HOME
-#       - export PATH="$PATH:$HOME/usr/bin/hub"
-#       - hub version
-#       - apt update
-#       - apt install -y hub
+      - apt update
+      - apt install -y git 
+      - apt update
+      - apt install -y hub
 #   build:
 #     commands:
 #       - export VERSION=3.37
