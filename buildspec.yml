@@ -7,7 +7,7 @@ env:
 phases:
   install:
     runtime-versions:
-      nodejs: 12
+      nodejs: 10
     commands:
       - wget https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -O /usr/bin/yq
       - chmod +x /usr/bin/yq
@@ -16,7 +16,8 @@ phases:
       - apt update
       - apt install -y git 
       - wget https://github.com/github/hub/archive/refs/tags/v2.14.2.tar.gz 
-      - unzip v2.14.2.tar.gz -O /usr/bin/hub
+      - mkdir /usr/bin/hub
+      - tar -C /usr/bin/hub -zxvf v2.14.2.tar.gz -O
       - echo $PATH
       - echo $HOME
       - export PATH="$PATH:$HOME/usr/bin/hub"
