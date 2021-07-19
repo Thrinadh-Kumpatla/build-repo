@@ -23,8 +23,8 @@ phases:
 #       - echo $HOME
 #       - export PATH="$PATH:$HOME/usr/bin/hub"
 #       - hub version
-#       - apt update
-#       - apt install -y hub
+      - apt update
+      - apt install -y hub
 #   build:
 #     commands:
 #       - export VERSION=3.37
