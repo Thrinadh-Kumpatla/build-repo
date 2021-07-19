@@ -13,9 +13,14 @@ phases:
       - chmod +x /usr/bin/yq
       - lsb_release -a 
       - pwd
-#       - apt update
-#       - apt install -y git 
-#       - wget https://github.com/github/hub/archive/refs/tags/v2.14.2.tar.gz -O 
+      - apt update
+      - apt install -y git 
+      - wget https://github.com/github/hub/archive/refs/tags/v2.14.2.tar.gz 
+      - unzip v2.14.2.tar.gz -O /usr/bin/hub
+      - echo $PATH
+      - echo $HOME
+      - export PATH="$PATH:$HOME/usr/bin/hub"
+      - 
 #       - apt update
 #       - apt install -y hub
 #   build:
