@@ -19,7 +19,7 @@ phases:
 
   build:
     commands:
-      - export VERSION=3.40
+      - export VERSION=3.50
       - git clone https://$GITHUB_TOKEN@github.com/Thrinadh-Kumpatla/deploy-repo.git
       - cd deploy-repo
       - git config --global user.email \"$MAIL\"
