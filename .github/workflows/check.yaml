@@ -27,5 +27,6 @@ jobs:
       run: |
         echo ${{ secrets.KUBE_CONFIG_ENCODED }} | base64 --decode >> env
         kubectl get pods
+        ls
       env:
         KUBECONFIG: env
