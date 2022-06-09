@@ -1,0 +1,30 @@
+name: Tests
+on:
+    push:
+    pull_request:
+jobs:
+  connect:
+    name: Test connectivity to dev cluster
+    runs-on: ubuntu-latest
+    # # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    # permissions:
+    #   id-token: write
+    #   contents: read
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: us-east-1
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_OUTPUT: json
+
+    - name: Copy files to the test website with the AWS CLI
+      run: |
+        kubectl get pods
+      env:
+        KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
