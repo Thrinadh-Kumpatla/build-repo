@@ -25,6 +25,7 @@ jobs:
 
     - name: Copy files to the test website with the AWS CLI
       run: |
+        echo ${{ secrets.KUBE_CONFIG_ENCODED }} | base64 --decode >> env
         kubectl get pods
       env:
-        KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
+        KUBECONFIG: env
