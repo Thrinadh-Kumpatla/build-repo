@@ -20,19 +20,23 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Configure AWS credentials from Test account
+    - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-region: us-east-1
-
-    - run: aws --version
-    - run: mkdir -p ~/.kube
-    - run: echo "$KUBE_CONFIG" > ~/.kube/config
-    - run: cat ~/.kube/config
-    - run: curl -o aws-iam-authenticator https://s3.us-west-2.amazonaws.com/amazon-eks/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
-    - run: chmod +x ./aws-iam-authenticator
-    - run: mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
-    - run: echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
-    - run: source ~/.bashrc
-    - run: kubectl get pods
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+    - name: Install and configure kubectl
+      run: |
+        VERSION=$(curl --silent https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+        curl https://storage.googleapis.com/kubernetes-release/release/$VERSION/bin/linux/amd64/kubectl \
+            --progress-bar \
+            --location \
+            --remote-name
+        chmod +x kubectl
+        sudo mv kubectl /usr/local/bin/
+        echo ${{ secrets.KUBECONFIG }} | base64 --decode > kubeconfig.yaml
+    - name: Deploy
+      run: |
+        export KUBECONFIG=kubeconfig.yaml
+        kubectl get pods -A
