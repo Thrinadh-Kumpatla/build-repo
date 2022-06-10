@@ -20,15 +20,11 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-region: us-east-1
-    - name: install iam authenticator
-      uses: prepor/action-aws-iam-authenticator@master
-    - run: aws-iam-authenticator version
-    - run: aws-iam-authenticator help
+        aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
     - name: verify deployment
       uses: kodermax/kubectl-aws-eks@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_ENCODED }}
-    - run: aws s3 ls
-    - run: kubectx
     - run: kubectl version
     - run: kubectl get pods -n default
