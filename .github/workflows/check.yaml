@@ -29,4 +29,9 @@ jobs:
       uses: prepor/action-aws-iam-authenticator@master
     - run: aws-iam-authenticator version
     - run: aws-iam-authenticator help
-    - run: kubectl get pods
+    - name: verify deployment
+      uses: kodermax/kubectl-aws-eks@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_ENCODED }}
+      with:
+        args: get pods
