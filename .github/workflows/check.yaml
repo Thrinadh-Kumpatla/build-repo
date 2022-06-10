@@ -8,7 +8,6 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_DEFAULT_OUTPUT: json
   KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-  AWS_REGION: us-east-1a
 
 jobs:
   connect:
@@ -25,10 +24,8 @@ jobs:
     - name: Configure AWS credentials from Test account
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
-
+        aws-region: us-east-1
+    - run: aws s3 ls
     - run: aws --version
     - run: mkdir -p ~/.kube
     - run: echo "$KUBE_CONFIG" > ~/.kube/config
@@ -37,6 +34,5 @@ jobs:
     - run: chmod +x ./aws-iam-authenticator
     - run: mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
     - run: echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
-    - run: source ~/.bashrc
     - run: aws-iam-authenticator help
     - run: kubectl get pods
