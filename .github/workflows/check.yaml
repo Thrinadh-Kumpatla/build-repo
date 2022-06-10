@@ -25,14 +25,8 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-region: us-east-1
-    - run: aws s3 ls
-    - run: aws --version
-    - run: mkdir -p ~/.kube
-    - run: echo "$KUBE_CONFIG" > ~/.kube/config
-    - run: cat ~/.kube/config
-    - run: curl -o aws-iam-authenticator https://s3.us-west-2.amazonaws.com/amazon-eks/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
-    - run: chmod +x ./aws-iam-authenticator
-    - run: mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
-    - run: echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
+    - name: install iam authenticator
+      uses: prepor/action-aws-iam-authenticator@master
+    - run: aws-iam-authenticator version
     - run: aws-iam-authenticator help
     - run: kubectl get pods
