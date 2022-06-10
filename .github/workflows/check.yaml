@@ -38,5 +38,3 @@ jobs:
     - run: kubectl version
     - run: cat $KUBECONFIG
     - run: kubectl get pods -n default
-    
-    
