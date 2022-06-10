@@ -27,5 +27,6 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_ENCODED }}
         KUBECTL_VERSION: "v1.22.0"
+        IAM_VERSION: "0.5.6"
     - run: kubectl version
     - run: kubectl get pods -n default
