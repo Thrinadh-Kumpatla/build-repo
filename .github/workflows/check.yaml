@@ -33,5 +33,4 @@ jobs:
       uses: kodermax/kubectl-aws-eks@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_ENCODED }}
-      with:
-        args: get pods
+    - run: kubectl get pods -n default
