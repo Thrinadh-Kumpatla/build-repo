@@ -32,3 +32,4 @@ jobs:
         args: |
             get pods -n default
             kubectl get service -n default
+            echo "thrinadh"
