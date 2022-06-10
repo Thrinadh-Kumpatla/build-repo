@@ -8,6 +8,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_DEFAULT_OUTPUT: json
   KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+  AWS_REGION: us-east-1a
 
 jobs:
   connect:
