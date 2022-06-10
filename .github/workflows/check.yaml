@@ -34,6 +34,7 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_ENCODED }}
     - run: export AWS_PROFILE=dev
+    - run: echo $KUBECONFIG
     - run: kubectl get pods -n default
     
     
