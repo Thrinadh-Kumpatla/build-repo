@@ -1,0 +1,35 @@
+name: Tests
+on:
+    push:
+    pull_request:
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_OUTPUT: json
+
+jobs:
+  connect:
+    name: Test connectivity to dev cluster
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: us-east-1
+        aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+    - name: verify deployment
+      uses: kodermax/kubectl-aws-eks@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_ENCODED }}
+        KUBECTL_VERSION: "v1.22.0"
+        IAM_VERSION: "0.5.6"
+      with:
+        args: |
+            get pods -n default
+            kubectl get service -n default
+            echo "thrinadh"
